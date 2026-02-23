@@ -1,0 +1,8 @@
+{
+  "name": "api-refresh",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test": "node -e \"console.log('Tests: add your test runner here'); process.exit(0)\""
+  }
+}
