@@ -9,6 +9,7 @@ operations. Select a task from the sidebar to get started.
 |------|-------------|
 | **API Refresh** | Upload a spreadsheet of entity codes and generate an `EXEC` statement for the refresh stored procedure (Global Plus or IMIX). |
 | **Mapping** | Step-by-step wizard for IMIX transaction-type mapping requests, including error-recovery SQL for missing config entries. |
+| **CRM Amendments** | Generate pre-check, UPDATE, and post-check SQL for `ClientTransactions.mba.transactions` amendments with flexible field selection. |
 
 ## Quick start
 
@@ -54,6 +55,18 @@ The browser opens automatically at `http://localhost:8501`.
    from Middle Office, and follow the four recovery steps.
 7. Use **Show all SQL** to view/copy every block at once.
 
+### CRM Amendments
+
+1. Select **CRM Amendments** in the sidebar.
+2. Enter transaction references (one per line, e.g. `IMIX.CT.11373522`).
+3. Select which fields to update (`Narrative2`, `TransactionTypeExternal`, or
+   add a custom field name and value).
+4. The tool generates three SQL blocks:
+   - **Pre-check** -- SELECT queries to inspect the current state
+   - **UPDATE** -- the amendment statement
+   - **Post-check** -- SELECT queries to verify changes
+5. Copy each block individually or use **Show all SQL** for the full flow.
+
 ## Running tests
 
 ```bash
@@ -71,15 +84,18 @@ api_refresh_builder/
     validation.py                   # Regex validation helpers
     sql_builder.py                  # API Refresh SQL generator
     mapping_builder.py              # Mapping SQL generator
+    crm_builder.py                  # CRM Amendments SQL generator
     ui_helpers.py                   # Shared clipboard & CSS helpers
     pages/
         __init__.py
         api_refresh.py              # API Refresh page
         mapping.py                  # Mapping wizard page
+        crm_amendments.py           # CRM Amendments page
 tests/
     test_parsing.py
     test_sql_builder.py
     test_mapping_builder.py
+    test_crm_builder.py
 requirements.txt
 pyproject.toml
 ```

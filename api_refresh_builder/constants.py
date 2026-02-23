@@ -53,6 +53,17 @@ CONFIG_COLUMNS: list[str] = [
 ]
 
 # ---------------------------------------------------------------------------
+# CRM Amendments workflow
+# ---------------------------------------------------------------------------
+CRM_TRANSACTIONS_TABLE: str = "ClientTransactions.mba.transactions"
+CRM_CONTRIBUTIONS_TABLE: str = "ClientTransactions.mba.transactions_contribution"
+
+CRM_UPDATABLE_FIELDS: list[str] = [
+    "Narrative2",
+    "TransactionTypeExternal",
+]
+
+# ---------------------------------------------------------------------------
 # UI defaults
 # ---------------------------------------------------------------------------
 PREVIEW_COUNT: int = 25

@@ -37,6 +37,7 @@ inject_css()
 TASKS = {
     "API Refresh": "api_refresh",
     "Mapping": "mapping",
+    "CRM Amendments": "crm_amendments",
 }
 
 with st.sidebar:
@@ -57,4 +58,7 @@ if TASKS[selected_task] == "api_refresh":
     render()
 elif TASKS[selected_task] == "mapping":
     from api_refresh_builder.pages.mapping import render  # type: ignore[assignment]
+    render()
+elif TASKS[selected_task] == "crm_amendments":
+    from api_refresh_builder.pages.crm_amendments import render  # type: ignore[assignment]
     render()

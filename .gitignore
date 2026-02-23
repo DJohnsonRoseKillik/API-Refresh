@@ -1,3 +1,6 @@
+# Docs (local only, not committed)
+docs/
+
 # Dependencies
 node_modules/
 vendor/
