@@ -35,6 +35,24 @@ DEFAULT_TARGET_TYPES: list[str] = [
 CODE_PATTERN: re.Pattern[str] = re.compile(r"^[A-Za-z0-9_\-]+$")
 
 # ---------------------------------------------------------------------------
+# Mapping workflow
+# ---------------------------------------------------------------------------
+MAPPING_TABLE: str = "Aurora.IMIX.TransactionTypes_TransactionTypeExternal_Map"
+MAPPING_CONFIG_TABLE: str = (
+    "Aurora.IMIX.TransactionTypes_TransactionTypeExternal_Config"
+)
+MAPPING_PROC: str = "Aurora.IMIX.TransactionTypes_InsertMap"
+
+CONFIG_COLUMNS: list[str] = [
+    "TransactionTypeExternal",
+    "TransactionType",
+    "TransferType",
+    "Shares",
+    "TDW_Description",
+    "TDW_SourceTable",
+]
+
+# ---------------------------------------------------------------------------
 # UI defaults
 # ---------------------------------------------------------------------------
 PREVIEW_COUNT: int = 25
